@@ -1,0 +1,50 @@
+.Home-left {
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 3rem;   
+  margin-top: 5rem;
+}
+
+.Home-left h3 {
+  font-size: 1.2rem;
+}
+
+.home-left-para1 {
+  color: rgb(39, 39, 116);
+  background-color: #d5d5f7;
+  width: fit-content;      /* ✅ better than 15vw */
+  padding: 0 1.5rem;
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+  margin-bottom: 2rem;
+}
+
+.home-left-para2 {
+  margin-bottom: 2rem;
+  font-size: 2.5rem;
+  color: #333;
+}
+
+.home-left-para3 {
+  margin-bottom: 2rem;
+  opacity: 70%;
+}
+
+.Home-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem;
+}
+
+.Home-right img {
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+  object-fit: cover;
+}
