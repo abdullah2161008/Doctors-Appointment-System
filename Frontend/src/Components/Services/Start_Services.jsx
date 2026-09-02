@@ -14,7 +14,7 @@ export default function Start() {
         </div>
         <div className="row emotions">
           <div className="col-3 expert-doctors">
-            <i className="fa-solid fa-user-group"></i> {/* ✅ className */}
+            <i className="fa-solid fa-user-group"></i>
             <h3>50+</h3>
             <p>Expert Doctors</p>
           </div>
