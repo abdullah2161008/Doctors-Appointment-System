@@ -1,0 +1,185 @@
+.appointment{
+    margin-top: 10rem;
+    height: 120vh;
+}
+
+.appointment-left{
+    width: 45%;   
+    margin-left: 1rem;
+}
+
+.p1-top{
+    background-color:#d5d5f7;
+    width: 11rem;
+    height: 3rem;
+    font-size: 1.1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    color: blue;
+    margin-bottom: 1.3rem;
+}
+
+.p1{
+    font-size: 1.1rem;
+}
+
+.p1-last{
+    font-size: 1.1rem;
+    opacity: 80%;
+}
+
+.after-p1{
+    margin-top: 3rem;
+}
+
+.calender{
+    background-color: #d5d5f7;
+    height: 3.5rem;
+    width: 3.5rem;
+    margin-left: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+.calender-p{
+    font-size: 1.1rem;
+    opacity: 80%;
+}
+.expert-care{
+    font-size: 1.4rem;
+    color: blue;
+}
+
+.appointment-right{
+    background-color: #f7f7fc;
+    margin-left: 2rem;
+    border-radius: 15px;
+}
+
+.form {
+    margin-top: 2rem;
+    margin-left: 2rem;
+    width: 90%;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.label {
+    font-size: 1.2rem;
+    font-weight: lighter;
+    opacity: 0.8;
+}
+
+.input-box {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+
+    width: 100%;
+    box-sizing: border-box;
+
+    padding: 0.6rem 1rem;
+
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+
+    background-color: #fff;
+}
+
+.input-box i {
+    color: #0d6efd;
+    font-size: 1rem;
+    flex-shrink: 0;
+}
+
+.input-box input {
+    border: none;
+    outline: none;
+
+    width: 100%;
+    min-width: 0;
+
+    height: 2rem;
+
+    font-size: 1rem;
+    color: #333;
+
+    background: transparent;
+}
+
+.input-box input::placeholder {
+    color: #aaa;
+}
+
+.input-box:focus-within {
+    border-color: #0d6efd;
+    box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.1);
+}
+
+/* Email + Phone */
+.inline-inputs {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+}
+
+.inline-inputs .input-group {
+    flex: 1;
+    min-width: 0;
+}
+
+.input-box-department{
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+
+    width: 100%;
+    height: 3.4rem;
+    box-sizing: border-box;
+
+    padding: 0.6rem 1rem;
+
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+
+    background-color: #fff;
+}
+.input-box-department:focus-within {
+    border-color: #0d6efd;
+    box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.1);
+}
+
+
+.input-box textarea{
+    width: 100%;
+    border: none;
+    height: 7rem;
+}
+
+.input-box textarea:focus {
+    border-color: #0d6efd;
+    box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.1);
+    outline: none;
+}
+
+.form-btn{
+    height: 3rem;
+    width: 100%;
+    color: white;
+    background-color: #0d6efd;
+    border-radius: 10px;
+    margin-top: 2rem;
+}
+
+.textbox-icon{
+    position: relative;
+    top: -42px;
+}
