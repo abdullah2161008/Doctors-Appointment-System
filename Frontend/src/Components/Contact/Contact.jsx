@@ -3,7 +3,7 @@ export default function Contact(){
         <>
             <div className="container-fluid main-contact">
                 <div className="container">
-                    <div className="row">
+                    <div className="row main-row">
                         <div className="col-3 contact1">
                             <h3><i className="fa-solid fa-hand-holding-medical"></i> HealthCare Plus</h3>
                             <p className="contact1-para">Providing quality healthcare services with compassion and excellence since 2005.</p>
@@ -41,8 +41,8 @@ export default function Contact(){
 
                     <hr className="horizontal-row" />
 
-                    <div className="row">
-                        <div style={{color:"white"}} className="col-6 mt-5">© 2025 HealthCare Plus. All rights reserved.</div>
+                    <div className="row last-row">
+                        <div style={{color:"white"}} className="col-6 mt-5 end">© 2025 HealthCare Plus. All rights reserved.</div>
                         <div className="col-6 text-end privacy">
                             <p><a style={{textDecoration:"none"}} href="">Privacy Policy</a> <a style={{textDecoration:"none"}} href="">Terms of Service</a> <a style={{textDecoration:"none" }} href="">Cookie Policy</a></p>
                         </div>

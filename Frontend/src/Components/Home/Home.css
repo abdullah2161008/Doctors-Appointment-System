@@ -14,13 +14,12 @@
 .home-left-para1 {
   color: rgb(39, 39, 116);
   background-color: #d5d5f7;
-  width: fit-content;      /* ✅ better than 15vw */
-  padding: 0 1.5rem;
-  height: 3rem;
+  width: fit-content;   
+  padding: 1rem 1rem 1rem 1rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 50px;
+  border-radius: 20px;
   margin-bottom: 2rem;
 }
 
@@ -76,6 +75,7 @@
   align-items: center;       /* center vertically */
   background-color: #d5d5f7;
   border-radius: 20px;
+  height: 3rem;
 }
 
 .easy-booking-h1{
@@ -102,3 +102,39 @@
   font-size: 1.2rem;
   border-radius: 10px;
 }
+
+@media (min-width: 0px) and (max-width: 576px){
+    .row.main-row{
+      flex-direction: column;
+    }
+    .easy-booking i {
+      font-size: 1rem;
+    }
+    .easy-booking{
+      height: 2rem;
+    }
+    .Home-left{
+      width: 100%;
+      height: auto;
+      margin-top: 1rem;
+      padding: 1.5rem;
+    }
+    .Home-right{
+      width: 100%;
+      padding: 1rem;
+    }
+    .Home-right img{
+      height: 70vh;
+    }
+    .left-end-p-btn{
+      width: 100%;
+      font-size: 0.8rem;
+      font-weight: bolder;
+    }
+    .left-end-s-btn{
+      width: 120%;
+      font-size: 0.8rem;
+      font-weight: bolder;
+    }
+}
+

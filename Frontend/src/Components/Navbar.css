@@ -55,3 +55,47 @@
   margin-right: 0.5rem;
   font-size: 1.2rem;
 }
+
+/* Responsieness */
+/* mobile  */
+@media (min-width: 0px) and (max-width: 576px){
+   .Navbar{
+    height: auto !important;
+   }
+   .Navbar-mid{
+    display: none;
+   }
+}
+
+@media (max-width: 991px) {
+    .Navbar-mid {
+        display: none !important;
+    }
+    
+    .navbar-collapse.show .Navbar-mid {
+        display: flex !important;
+        flex-direction: column;
+        padding: 1rem;
+    }
+
+    .navbar-toggler {
+      border: 1px solid transparent; /* default border transparent */
+    }
+
+    .navbar-toggler:hover {
+    box-shadow: none;
+    border: 4px solid #0d6efd;
+    }
+    .navbar-toggler:active {
+    border: 2px solid #0d6efd !important;
+    }
+
+    .navbar-collapse.show .Navbar-mid a:hover{
+      color: blue;
+    }
+    
+    .Navbar {
+        height: auto !important;
+    }
+}
+

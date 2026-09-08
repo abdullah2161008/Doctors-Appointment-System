@@ -3,17 +3,17 @@ import "./Home.css";
 export default function Home() {
   return (
     <div className="container-fluid Home">
-      <div className="row">
+      <div className="row main-row">
         <div className="col-6 Home-left">
           <h3 className="home-left-para1">Your Health, Our Priority</h3>
           <h3 className="home-left-para2">
             Quality Healthcare Services at Your Fingertips
           </h3>
-          <h3 className="home-left-para3">
+          <p className="home-left-para3">
             Book appointments with top-rated doctors, access specialized care,
             and manage your health journey all in one place. Experience
             healthcare that puts you first.
-          </h3>
+          </p>
           <div className="row">
             <div className="col-4">
               <div className="row">
@@ -22,7 +22,7 @@ export default function Home() {
                 </div>
                 <div className="col-8">
                   <h3 className="easy-booking-h1">Easy Booking</h3>
-                  <h3 className="easy-booking-h2">24/7 Online</h3>
+                  <p className="easy-booking-h2">24/7 Online</p>
                 </div>
               </div>
             </div>
@@ -33,7 +33,7 @@ export default function Home() {
                 </div>
                 <div className="col-8">
                   <h3 className="easy-booking-h1">Quick Service</h3>
-                  <h3 className="easy-booking-h2">Same Day</h3>
+                  <p className="easy-booking-h2">Same Day</p>
                 </div>
               </div>
             </div>
@@ -42,9 +42,9 @@ export default function Home() {
                 <div className="col-3 easy-booking">
                   <i class="fa-solid fa-shield-halved"></i>
                 </div>
-                <div className="col-8">
+                <div className="col-8 certified">
                   <h3 className="easy-booking-h1">Certified</h3>
-                  <h3 className="easy-booking-h2">Top Doctors</h3>
+                  <p className="easy-booking-h2">Top Doctors</p>
                 </div>
               </div>
             </div>

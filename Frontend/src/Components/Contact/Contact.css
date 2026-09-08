@@ -114,3 +114,55 @@
 .privacy {
     margin-top: 3rem;
 }
+
+@media (min-width: 0px) and (max-width: 576px){
+    .main-contact{
+        height: 210vh;
+    }
+    .main-row{
+        margin: 1rem;
+    }
+    .contact1{
+        width: 100%;
+    }
+    .contact1 p {
+        font-size: 1rem;
+    }
+    .contact2 p a {
+        font-size: 1rem;
+    }
+    .contact3 p a {
+        font-size: 1rem;
+    }
+
+    .contact4 p  {
+        font-size: 1rem;
+    }
+    .contact2{
+        width: 100%;
+        margin-top: 1rem;    
+    }
+
+    .contact3{
+        width: 100%;
+        margin-top: 1rem;
+    }
+
+    .contact4{
+        width: 100%;
+        margin-top: 1rem;
+    }
+    .end{
+        width: 100%;
+        margin-top: 0.5rem !important;
+        display: flex;
+        justify-content: center;
+    }
+    .text-end{
+        width: 100%;
+        margin-top: 1rem;
+        display: flex;
+        justify-content: center;
+    }
+
+}

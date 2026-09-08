@@ -183,3 +183,35 @@
     position: relative;
     top: -42px;
 }
+
+@media (min-width: 0px) and (max-width: 576px){
+    .calender{
+        margin-bottom: 1rem;
+    }
+
+    .row.appointment,
+    .appointment.row {
+        flex-direction: column !important;
+        display: flex !important;
+        height: auto !important;
+    }
+
+    .appointment-left,
+    .appointment-right {
+        width: 100% !important;
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
+        margin: 0.5rem !important;
+    }
+
+    .appointment-right{
+        margin-top: 1rem !important;
+    }
+
+    .form{
+        margin-left: 0 !important;
+        width: 100% !important;
+        box-sizing: border-box;
+        padding: 1rem;
+    }
+}
