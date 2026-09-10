@@ -1,0 +1,144 @@
+/* Background */
+.background {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* background: linear-gradient(135deg, #f0f4f8, #d9e8f5); */
+}
+
+/* Center Column */
+.main-col {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+/* Card */
+.main-card {
+  margin-top: 1rem;
+  background: #ffffff;
+  padding: 2.5rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 440px;
+}
+
+/* Heading */
+.main-card h3 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin-bottom: 0.25rem;
+}
+
+.main-card p {
+  color: #6c757d;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+}
+
+/* Toggle Buttons */
+.btn-switch {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.75rem;
+  background: #f0f4f8;
+  padding: 0.25rem;
+  border-radius: 8px;
+  width: fit-content;
+}
+
+.btn-switch .btn {
+  border-radius: 6px;
+  padding: 0.4rem 1.25rem;
+  font-weight: 500;
+  font-size: 0.9rem;
+  border: none;
+  transition: all 0.2s ease;
+}
+
+.btn-switch .btn-primary {
+  background-color: #0d6efd;
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(13, 110, 253, 0.3);
+}
+
+.btn-switch .btn-outline-primary {
+  background: transparent;
+  color: #6c757d;
+}
+
+.btn-switch .btn-outline-primary:hover {
+  background-color: #e2e8f0;
+  color: #0d6efd;
+}
+
+/* Form Labels */
+.main-card label {
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: #1a1a2e;
+  margin-bottom: 0.35rem;
+  display: block;
+}
+
+/* Inputs */
+.main-card .form-control {
+  border-radius: 8px;
+  border: 1.5px solid #dee2e6;
+  padding: 0.6rem 1rem;
+  font-size: 0.95rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.main-card .form-control:focus {
+  border-color: #0d6efd;
+  box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.15);
+  outline: none;
+}
+
+/* Forgot Password */
+.forgot-link {
+  font-size: 0.85rem;
+  color: #0d6efd;
+  text-decoration: none;
+}
+
+.forgot-link:hover {
+  text-decoration: underline;
+}
+
+/* Submit Button */
+.main-card .btn-primary.w-100 {
+  padding: 0.65rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  background-color: #0d6efd;
+  border: none;
+  box-shadow: 0 4px 12px rgba(13, 110, 253, 0.35);
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.main-card .btn-primary.w-100:hover {
+  background-color: #0b5ed7;
+  box-shadow: 0 6px 16px rgba(13, 110, 253, 0.45);
+}
+
+/* Bottom Text */
+.main-card .mt-3 {
+  color: #6c757d;
+  font-size: 0.9rem;
+}
+
+.main-card .mt-3 a {
+  color: #0d6efd;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.main-card .mt-3 a:hover {
+  text-decoration: underline;
+}
