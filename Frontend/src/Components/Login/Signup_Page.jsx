@@ -1,7 +1,45 @@
 import "./Login.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { toast } from 'react-toastify';
 
 export default function Signup() {
+  const navigate = useNavigate();
+  const [userInput, setUserInput] = useState({
+    name: "",
+    email: "",
+    password: ""
+  });
+
+  // ✅ handleChange missing tha
+  const handleChange = (e) => {
+    setUserInput({ ...userInput, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await fetch("http://localhost:8080/api/auth/signup", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(userInput),
+        credentials: "include",
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        toast.success("Account Created Successfully! 🎉");
+        navigate("/home");
+      } else {
+        toast.error(data.message);
+      }
+    } catch (err) {
+      console.error("Error:", err);
+      alert("Something went wrong!");
+    }
+  };
+
   return (
     <div className="container-fluid background">
       <div className="col main-col">
@@ -10,17 +48,17 @@ export default function Signup() {
             <h3>Create Account</h3>
             <p>Sign up to get started</p>
 
-            {/* Toggle Buttons */}
             <div className="btn-switch">
               <Link to="/Login" className="btn btn-outline-primary me-2">Login</Link>
               <Link to="/Signup" className="btn btn-primary">Signup</Link>
             </div>
 
-            <form>
+            <form onSubmit={handleSubmit}>
               <div className="mb-3">
                 <label htmlFor="name">Full Name</label>
                 <input
-                  type="string"
+                  onChange={handleChange}
+                  type="text"
                   id="name"
                   name="name"
                   className="form-control"
@@ -30,9 +68,10 @@ export default function Signup() {
               </div>
 
               <div className="mb-3">
-                <label htmlFor="Email">Email</label>
+                <label htmlFor="email">Email</label>
                 <input
-                  type="string"
+                  onChange={handleChange}
+                  type="email" // ✅ email type
                   id="email"
                   name="email"
                   className="form-control"
@@ -44,6 +83,7 @@ export default function Signup() {
               <div className="mb-3">
                 <label htmlFor="password">Password</label>
                 <input
+                  onChange={handleChange}
                   type="password"
                   id="password"
                   name="password"

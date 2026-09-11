@@ -1,7 +1,33 @@
 import "./Navbar.css";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate ,useLocation} from "react-router-dom";
+import { useState, useEffect } from "react";
 
 export default function Navbar() {
+  const navigate = useNavigate();
+  const location = useLocation(); 
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isSignedIn,setIsSignedIn] = useState(false);
+  // ✅ Backend se check karo cookie valid hai ya nahi
+  useEffect(() => {
+    fetch("http://localhost:8080/api/auth/check", {
+      credentials: "include", // ✅ cookie bhejo
+    })
+      .then((res) => {
+        if (res.ok) setIsLoggedIn(true);
+        else setIsLoggedIn(false);
+      })
+      .catch(() => setIsLoggedIn(false));
+  }, [location]);
+
+  const handleLogout = async () => {
+    await fetch("http://localhost:8080/api/auth/logout", {
+      method: "POST",
+      credentials: "include", // ✅
+    });
+    setIsLoggedIn(false);
+    navigate("/Login");
+  };
+
   return (
     <nav className="container-fluid Navbar sticky-top navbar navbar-expand-lg">
       <div className="row h-100 w-100 align-items-center">
@@ -36,17 +62,29 @@ export default function Navbar() {
             <NavLink to="/Appointment" className={({ isActive }) => isActive ? "active-link" : ""}>Book Appointment</NavLink>
           </div>
 
-          {/* Login/Signup visible on mobile inside collapsed menu */}
+          {/* Mobile */}
           <div className="d-flex d-lg-none mt-3 gap-2">
-            <Link to="/Login" className="btn btn-outline-primary">Login</Link>
-            <Link to="/Signup" className="btn btn-primary">Signup</Link>
+            {!isLoggedIn ? (
+              <>
+                <Link to="/Login" className="btn btn-outline-primary">Login</Link>
+                <Link to="/Signup" className="btn btn-primary">Signup</Link>
+              </>
+            ) : (
+              <button onClick={handleLogout} className="btn btn-danger">Logout</button>
+            )}
           </div>
         </div>
 
-        {/* Login/Signup on desktop */}
+        {/* Desktop */}
         <div className="col-lg-3 Navbar-end d-none d-lg-flex">
-          <Link to="/Login" className="btn btn-outline-primary me-2">Login</Link>
-          <Link to="/Signup" className="btn btn-primary">Signup</Link>
+          {!isLoggedIn ? (
+            <>
+              <Link to="/Login" className="btn btn-outline-primary me-2">Login</Link>
+              <Link to="/Signup" className="btn btn-primary">Signup</Link>
+            </>
+          ) : (
+            <button onClick={handleLogout} className="btn btn-danger">Logout</button>
+          )}
         </div>
 
       </div>

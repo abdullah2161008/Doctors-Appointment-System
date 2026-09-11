@@ -1,7 +1,43 @@
 import "./Login.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import {useState} from "react";
+import { toast } from 'react-toastify';
 
 export default function Login() {
+  
+  const navigate = useNavigate();
+  const [loginData,setLoginData] = useState({
+    email:"",
+    password:""
+  });
+  const handleChange=(e)=>{
+    setLoginData({...loginData,[e.target.name]:e.target.value})
+  }
+
+  const handleSubmit=async(e)=>{
+    e.preventDefault();
+    try{
+      const response = await fetch("http://localhost:8080/api/auth/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(loginData),
+        credentials:"include",
+      });
+      const data = await response.json();
+
+      if (response.ok) {
+        toast.success("Login Successful! "); // ✅
+        localStorage.setItem("token", data.token);
+        navigate("/home");
+      } else {
+        toast.error(data.message);
+      }
+    } catch (err) {
+      console.error("Error:", err);
+      alert("Something went wrong!");
+    }
+    
+  }
   return (
     <div className="container-fluid background">
       <div className="col main-col">
@@ -17,7 +53,7 @@ export default function Login() {
             </div>
 
             {/* Form */}
-            <form>
+            <form onSubmit={handleSubmit}>
               <div className="mb-3">
                 <label htmlFor="email">Email</label>
                 <input
@@ -27,6 +63,7 @@ export default function Login() {
                   className="form-control"
                   placeholder="Enter your email"
                   required
+                  onChange={handleChange}
                 />
               </div>
 
@@ -39,6 +76,7 @@ export default function Login() {
                   className="form-control"
                   placeholder="Enter your password"
                   required
+                  onChange={handleChange}
                 />
               </div>
 
