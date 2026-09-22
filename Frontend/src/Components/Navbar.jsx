@@ -1,16 +1,15 @@
 import "./Navbar.css";
-import { Link, NavLink, useNavigate ,useLocation} from "react-router-dom";
+import { Link, NavLink, useNavigate, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 export default function Navbar() {
   const navigate = useNavigate();
-  const location = useLocation(); 
+  const location = useLocation();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [isSignedIn,setIsSignedIn] = useState(false);
-  // ✅ Backend se check karo cookie valid hai ya nahi
+
   useEffect(() => {
     fetch("http://localhost:8080/api/auth/check", {
-      credentials: "include", // ✅ cookie bhejo
+      credentials: "include",
     })
       .then((res) => {
         if (res.ok) setIsLoggedIn(true);
@@ -22,7 +21,7 @@ export default function Navbar() {
   const handleLogout = async () => {
     await fetch("http://localhost:8080/api/auth/logout", {
       method: "POST",
-      credentials: "include", // ✅
+      credentials: "include",
     });
     setIsLoggedIn(false);
     navigate("/Login");
@@ -60,6 +59,13 @@ export default function Navbar() {
             <NavLink to="/Services" className={({ isActive }) => isActive ? "active-link" : ""}>Services</NavLink>
             <NavLink to="/Doctors" className={({ isActive }) => isActive ? "active-link" : ""}>Our Doctors</NavLink>
             <NavLink to="/Appointment" className={({ isActive }) => isActive ? "active-link" : ""}>Book Appointment</NavLink>
+            
+            {/* ✅ Sirf login hone ke baad dikhao */}
+            {isLoggedIn && (
+              <NavLink to="/my-appointments" className={({ isActive }) => isActive ? "active-link" : ""}>
+                My Appointments
+              </NavLink>
+            )}
           </div>
 
           {/* Mobile */}

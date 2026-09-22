@@ -22,7 +22,7 @@ app.use(cookieParser());
 
 mongoose
   .connect(process.env.MONGO_URL, {
-    serverSelectionTimeoutMS: 5000, // ✅ 5 second mein fail karo
+    serverSelectionTimeoutMS: 5000, 
     socketTimeoutMS: 45000,
   })
   .then(() => console.log("MongoDB Connected"))
@@ -31,7 +31,7 @@ mongoose
 const port = process.env.PORT;
 
 app.use("/api/auth",require("./routes/user.js"));
-
+app.use("/api/appointments",require("./routes/appointment.js"));
 
 app.get("/",(req,res)=>{
     res.send("app is working fine");

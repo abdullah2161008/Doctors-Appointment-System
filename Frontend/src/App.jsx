@@ -6,8 +6,8 @@ import Services_Page from './Components/Services/ServicesPage'
 import Layout from './Components/Layouts'
 import Login from "./Components/Login/Login_Page.jsx"
 import SignUp from "./Components/Login/Signup_Page.jsx"
-import {BrowserRouter, Routes, Route} from "react-router-dom";
-
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import MyAppointments from './Components/Appointment/My_Appointments.jsx'
 
 function App() {
   return (
@@ -20,13 +20,13 @@ function App() {
           <Route path='/Services' element={<Services_Page />} />
           <Route path='/Doctors' element={<Doctors_Page />} />
           <Route path='/Appointment' element={<Appointment_Page />} />
+          <Route path='/my-appointments' element={<MyAppointments />} />
           <Route path='*' element={<h1>404 - Page Not Found</h1>} />
-          <Route path='/login' element={<Login/>} />
-          <Route path='/Signup' element={<SignUp/>}/>
         </Route>
 
-        {/* {if you want to show something without navbar and footer then write below here } */}
-
+        {/* Routes WITHOUT Navbar + Footer ✅ */}
+        <Route path='/Login' element={<Login />} />
+        <Route path='/Signup' element={<SignUp />} />
 
       </Routes>
     </BrowserRouter>

@@ -1,4 +1,43 @@
+import { useState } from "react";
+import { toast } from 'react-toastify';
 export default function Appointment() {
+  const [appointment,setAppointment] = useState({
+    fullName:"",
+    email:"",
+    phone:"",
+    date:"",
+    time:"",
+    service:"",
+    doctor:"",
+    message:""
+  });
+
+  const handleChange = (event)=>{
+    setAppointment({...appointment,[event.target.name]:event.target.value})
+  }
+
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  try {
+    const response = await fetch("http://localhost:8080/api/appointments/submit", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(appointment),
+      credentials: "include", // ✅ cookie bhejo
+    });
+
+    const data = await response.json();
+
+    if (response.ok) {
+      toast.success("Appointment Booked Successfully! 🎉");
+    } else {
+      toast.error(data.message);
+    }
+  } catch (err) {
+    console.error("Error:", err);
+  }
+};
+
   return (
     <>
       <div className="container">
@@ -12,7 +51,7 @@ export default function Appointment() {
             </p>
             <div className="row after-p1">
               <div className="col-2 calender  ">
-                <i class="fa-regular fa-calendar"></i>
+                <i className="fa-regular fa-calendar"></i>
               </div>
               <div className="col-10">
                 <h4>Flexible Scheduling</h4>
@@ -23,7 +62,7 @@ export default function Appointment() {
             </div>
             <div className="row after-p1">
               <div className="col-2 calender  ">
-                <i class="fa-regular fa-clock"></i>
+                <i className="fa-regular fa-clock"></i>
               </div>
               <div className="col-10">
                 <h4>Quick Confirmation</h4>
@@ -34,7 +73,7 @@ export default function Appointment() {
             </div>
             <div className="row after-p1">
               <div className="col-2 calender expert-care ">
-                <i class="fa-regular fa-user"></i>
+                <i className="fa-regular fa-user"></i>
               </div>
               <div className="col-10">
                 <h4>Expert Care</h4>
@@ -48,12 +87,13 @@ export default function Appointment() {
           {/* ---------------- */}
 
           <div className="col-6 appointment-right">
-            <form action="" className="form">
+            <form onSubmit={handleSubmit} className="form">
               <div className="input-group mb-3">
                 <label className="label" htmlFor="fullName">Full Name*</label>
                 <div className="input-box">
                   <i className="fa-regular fa-user"></i>
                   <input
+                    onChange={handleChange}
                     type="text"
                     id="fullName"
                     name="fullName"
@@ -68,6 +108,7 @@ export default function Appointment() {
                   <div className="input-box">
                     <i className="fa-regular fa-envelope"></i>
                     <input
+                        onChange={handleChange}
                         type="email"
                         id="email"
                         name="email"
@@ -81,7 +122,8 @@ export default function Appointment() {
                   <div className="input-box">
                     <i className="fa-regular fa-envelope"></i>
                     <input
-                      type="phone"
+                      onChange={handleChange}
+                      type="tel"
                       id="phone"
                       name="phone"
                       placeholder="+92-0000000000"
@@ -96,8 +138,9 @@ export default function Appointment() {
                 <div className="input-group mb-3">
                   <label className="label" htmlFor="date">Preferred Date *</label>
                   <div className="input-box">
-                    <i class="fa-regular fa-calendar"></i>
+                    <i className="fa-regular fa-calendar"></i>
                     <input
+                        onChange={handleChange}
                         type="date"
                         id="date"
                         name="date"
@@ -108,8 +151,9 @@ export default function Appointment() {
                 <div className="input-group mb-3">
                   <label className="label" htmlFor="time">Preferred Time *</label>
                   <div className="input-box">
-                    <i class="fa-regular fa-clock"></i>
+                    <i className="fa-regular fa-clock"></i>
                     <input
+                      onChange={handleChange}
                       type="time"
                       id="time"
                       name="time"
@@ -122,7 +166,7 @@ export default function Appointment() {
 
               <div className="input-group mb-3">
                 <label className="label" htmlFor="department">Department *</label>
-                    <select className="input-box-department" id="department" name="service">
+                    <select onChange={handleChange} className="input-box-department" id="department" name="service">
                         <option value="">Select a department</option>
                         <option value="Cardiology">Cardiology</option>
                         <option value="neurology">Neurology</option>
@@ -133,7 +177,7 @@ export default function Appointment() {
 
               <div className="input-group mb-3">
                 <label className="label" htmlFor="doctor">Preferred Doctor (Optional)</label>
-                    <select className="input-box-department" id="doctor" name="doctor">
+                    <select onChange={handleChange} className="input-box-department" id="doctor" name="doctor">
                         <option value="">Any Available Doctor</option>
                         <option value="dr1">Dr. Sarah Johnson</option>
                         <option value="dr2">Dr. Michael Chen</option>
@@ -147,6 +191,7 @@ export default function Appointment() {
                 <div className="input-box">
                   <i className="fa-regular fa-message textbox-icon"></i>
                   <textarea
+                    onChange={handleChange}
                     id="message"
                     name="message"
                     placeholder="Enter your message..."
@@ -154,7 +199,7 @@ export default function Appointment() {
                 </div>
               </div>
 
-              <button className="form-btn" for="submit">Book Appointment</button>
+              <button className="form-btn" type="submit">Book Appointment</button>
 
             </form>
           </div>
